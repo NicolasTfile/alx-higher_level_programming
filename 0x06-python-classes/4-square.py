@@ -1,19 +1,3 @@
-BrightDaniel
-/
-alx-higher_level_programming
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-Security
-Insights
-alx-higher_level_programming/0x06-python-classes/4-square.py
-@BrightDaniel
-BrightDaniel python programming
- 1 contributor
-49 lines (43 sloc)  1.09 KB
 #!/usr/bin/python3
 """Defines a class Square"""
 
