@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ A module containing the function add_integer() """
 
+
 def add_integer(a, b=98):
     """This function returns the addition of 2 args or a raised Error
     arg a: should be an int, convert to type int if float
