@@ -8,7 +8,7 @@ from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 
-class TestBase(unittest.Testcase):
+class TestBase(unittest.TestCase):
     """Test cases for instantiation of the Base class."""
     def test_no_arg(self):
         b1 = Base()
