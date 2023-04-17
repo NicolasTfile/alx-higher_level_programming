@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-This module contains the "Square" class
-"""
+"""Defines a square class."""
 from models.rectangle import Rectangle
 
 
@@ -79,4 +77,5 @@ class Square(Rectangle):
 
     def __str__(self):
         """Return the print() and str() representation of a Square."""
-        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.height)
+        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
+                                                 self.width)
