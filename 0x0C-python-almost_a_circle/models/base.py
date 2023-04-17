@@ -1,23 +1,24 @@
 #!/usr/bin/python3
-"""
-Writing the Base model class
-"""
+
+"""Defines a base model class."""
 import json
 import csv
 import turtle
 
 
 class Base:
-    """
-    Defining the Base class. This class will represent the “base” of all other classes in this project.
+    """Base model.
+    This Represents the "base" for all other classes in project 0x0C*.
     Private Class Attributes:
-        __nb_object initialized to 0
+        __nb_object (int): Number of instantiated Bases.
     """
+
     __nb_objects = 0
+
     def __init__(self, id=None):
-        """
-        Initializing a new Base instance.
-        args: id which represents the identity of the new Base instance
+        """Initialize a new Base.
+        Args:
+            id (int): The identity of the new Base.
         """
         if id is not None:
             self.id = id
