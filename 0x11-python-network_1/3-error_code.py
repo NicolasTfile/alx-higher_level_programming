@@ -3,18 +3,18 @@
 Usage: ./3-error_code.py <URL>
   - Also handles HTTP errors.
 """
-from sys import argv
-from urllib.error import HTTPError
-from urllib.request import urlopen, Request
+import sys
+import urllib.error
+import urllib.request
 
 
 if __name__ == "__main__":
-    url = argv[1]
+    url = sys.argv[1]
 
-    req = Request(url)
+    req = urllib.request.Request(url)
     try:
-        with urlopen(req) as response:
+        with urllib.request.urlopen(req) as response:
             body = response.read()
             print(body.decode("utf-8"))
-    except HTTPError as e:
+    except urllib.error.HTTPError as e:
         print("Error code: {}".format(e.code))
