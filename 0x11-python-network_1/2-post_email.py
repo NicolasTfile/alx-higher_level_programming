@@ -4,18 +4,15 @@
 Usage: ./2-post_email.py <URL> <email>
 """
 
-
-from sys import argv
-from urllib.parse import urlencode
-from urllib.request import urlopen, Request
+import urllib.request
+import urllib.parse
+import sys
 
 
 if __name__ == "__main__":
-    url = argv[1]
-    value = {"email": argv[2]}
-    data = urlencode(value).encode("ascii")
-
-    req = Request(url, data)
-    with urlopen(req) as response:
-        body = response.read()
-        print(body.decode("utf-8"))
+    url = sys.argv[1]
+    email = sys.argv[2]
+    data = urllib.parse.urlencode({'email': email}).encode('utf-8')
+    with urllib.request.urlopen(url, data=data) as response:
+        response_body = response.read().decode('utf-8')
+        print(response_body)

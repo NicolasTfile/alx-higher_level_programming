@@ -2,20 +2,27 @@
 """List 10 commits (from the most recent to oldest) of the repository by the user.
 Usage: ./100-github_commits.py <repo name> <repo owner>
 """
-from sys import argv
+
+import sys
 import requests
 
 
-if __name__ == "__main__":
-    url = "https://api.github.com/repos/{}/{}/commits".format(
-        argv[2], argv[1])
-
+def commit_list(repository, owner):
+    """
+    function for getting the list of commits
+    """
+    url = f"https://api.github.com/repos/{owner}/{repository}/commits"
     response = requests.get(url)
-    commits = response.json()
-    try:
-        for i in range(10):
-            print("{}: {}".format(
-                commits[i].get("sha"),
-                commits[i].get("commit").get("author").get("name")))
-    except IndexError:
-        pass
+
+    if response.status_code == 200:
+        commits = response.json()[:10]
+        for commit in commits:
+            sha = commit["sha"]
+            author_name = commit["commit"]["author"]["name"]
+            print(f"{sha}: {author_name}")
+
+
+if __name__ == "__main__":
+    repository = sys.argv[1]
+    owner = sys.argv[2]
+    commit_list(repository, owner)

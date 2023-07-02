@@ -1,20 +1,26 @@
 #!/usr/bin/python3
 """Sends a POST request to http://0.0.0.0:5000/search_user with the letter as a parameter.
 Usage: ./8-json_api.py <letter>"""
-from sys import argv
+
 import requests
-
-
+import sys
 if __name__ == "__main__":
-    letter = "" if len(argv) == 1 else argv[1]
-    value = {"q": letter}
+    if len(sys.argv) > 1:
+        letter = sys.argv[1]
+    else:
+        letter = ""
 
-    req = requests.post("http://0.0.0.0:5000/search_user", data=value)
+    url = "http://0.0.0.0:5000/search_user"
+    payload = {"q": letter}
+
+    response = requests.post(url, data=payload)
+
     try:
-        response = req.json()
-        if response == {}:
-            print("No result")
+        json_data = response.json()
+
+        if json_data:
+            print("[{}] {}".format(json_data['id'], json_data['name']))
         else:
-            print("[{}] {}".format(response.get("id"), response.get("name")))
+            print("No result")
     except ValueError:
         print("Not a valid JSON")
