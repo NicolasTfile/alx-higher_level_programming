@@ -4,8 +4,7 @@ Usage: ./3-error_code.py <URL>
   - Also handles HTTP errors.
 """
 import sys
-import urllib.error
-import urllib.request
+import urllib
 
 
 if __name__ == "__main__":
