@@ -1,17 +1,17 @@
 #!/usr/bin/python3
-"""List 10 commits (from the most recent to oldest) of the repository by the user.
+"""List 10 commits of the repository by the user.
 Usage: ./100-github_commits.py <repo name> <repo owner>
 """
 
-import sys
+from sys import argv
 import requests
 
 
-def commit_list(repository, owner):
+def commit_list(repo, owner):
     """
     function for getting the list of commits
     """
-    url = f"https://api.github.com/repos/{owner}/{repository}/commits"
+    url = f"https://api.github.com/repos/{owner}/{repo}/commits"
     response = requests.get(url)
 
     if response.status_code == 200:
@@ -23,6 +23,6 @@ def commit_list(repository, owner):
 
 
 if __name__ == "__main__":
-    repository = sys.argv[1]
-    owner = sys.argv[2]
-    commit_list(repository, owner)
+    repository = argv[1]
+    owner = argv[2]
+    commit_list(repo, owner)

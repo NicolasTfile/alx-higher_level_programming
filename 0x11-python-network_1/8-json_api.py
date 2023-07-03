@@ -1,19 +1,19 @@
 #!/usr/bin/python3
-"""Sends a POST request to http://0.0.0.0:5000/search_user with the letter as a parameter.
+"""Sends a POST request to http://0.0.0.0:5000/search_user.
 Usage: ./8-json_api.py <letter>"""
 
 import requests
-import sys
+from sys import argv
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        letter = sys.argv[1]
+    if len(argv) > 1:
+        letter = argv[1]
     else:
         letter = ""
 
     url = "http://0.0.0.0:5000/search_user"
-    payload = {"q": letter}
+    val = {"q": letter}
 
-    response = requests.post(url, data=payload)
+    response = requests.post(url, data=val)
 
     try:
         json_data = response.json()
