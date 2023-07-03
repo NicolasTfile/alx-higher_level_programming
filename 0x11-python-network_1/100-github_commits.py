@@ -11,7 +11,7 @@ def commit_list(repo, owner):
     """
     function for getting the list of commits
     """
-    url = f"https://api.github.com/repos/{owner}/{repo}/commits"
+    url = f"https://api.github.com/repos/{owner}/{repository}/commits"
     response = requests.get(url)
 
     if response.status_code == 200:
@@ -25,4 +25,4 @@ def commit_list(repo, owner):
 if __name__ == "__main__":
     repository = argv[1]
     owner = argv[2]
-    commit_list(repo, owner)
+    commit_list(repository, owner)
